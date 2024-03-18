@@ -1,8 +1,8 @@
-1. Use npm to install all the dependies required in the project 
+### 1. Use npm to install all the dependies required in the project 
 
-2. The project can be cloned from my Github using git clone.
+### 2. The project can be cloned from my Github using git clone.
 
-3. Installed tailwind using Tailwind website and follow the steps.
+ ### 3. Installed tailwind using Tailwind website and follow the steps.
 
 
      1. Install Tailwind CSS
@@ -30,7 +30,7 @@
         @tailwind utilities;                   
 
 
-4. The values used in the code for from process.env should be set up by the user and saved in a .env file
+### 4. The values used in the code for from process.env should be set up by the user and saved in a .env file
 
 
 5. 
