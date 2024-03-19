@@ -1,8 +1,30 @@
+import { useState } from "react";
 import Footer from "../components/Footer.jsx";
 import { FiMenu } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 function HomeLayout({ children }) {
+
+
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn)
+  const role = useSelector((state) => state?.auth?.role)
+
+
+  function onLogOut(e){
+
+    e.preventDefault();
+    
+
+    navigate("/")
+  }
+
+
   return (
     <>
       <div>
@@ -26,6 +48,15 @@ function HomeLayout({ children }) {
               <li>
                 <Link to="/" > Home </Link>
               </li>
+
+              {isLoggedIn && role === "ADMIN" && (
+                  <li>
+                    <Link to = "/admin/dashboard"> Admin Dashboard</Link>
+                  </li>
+              )}
+
+
+
               <li>
                 <Link to="/about" > About Us </Link>
               </li>
@@ -35,6 +66,37 @@ function HomeLayout({ children }) {
               <li>
                 <Link to="/courses" > All Courses </Link>
               </li>
+
+
+              {!isLoggedIn ? (
+                <li className=" ml-14 w-[60%]">
+                    <div className=" w-full flex items-center justify-center">
+                        <button className=" btn btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                              <Link to = "/login">Login</Link>
+                          </button>
+                        <button className=" btn btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                              <Link to = "/login">Signup</Link>
+                          </button>
+                    
+                    </div>
+                </li>
+              ) : (
+                <li className=" ml-14 w-[60%]">
+                    <div className=" w-full flex items-center justify-center">
+                        <button className=" btn btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                              <Link to = "/user/profile">Profile</Link>
+                          </button>
+                        <button className=" btn btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                              <Link onClick={onLogOut}>Logout</Link>
+                          </button>
+                    
+                    </div>
+                </li>
+              )
+            
+            }
+
+
             </ul>
           </div>
         </div>
