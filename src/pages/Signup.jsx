@@ -66,10 +66,10 @@ function Signup() {
       return;
     }
 
-    // if (!isValidPassword(signupDetails.password)) {
-    //   toast.error( "Not a valid password , password should contain 1 uppercase , 1 lowercase , 1 special character and atleast 8 characters long" );
-    //   return;
-    // }
+    if (!isValidPassword(signupDetails.password)) {
+      toast.error( "Not a valid password , password should contain 1 uppercase , 1 lowercase , 1 special character and atleast 8 characters long" );
+      return;
+    }
 
 
     const formdata =  new FormData();
@@ -82,7 +82,7 @@ function Signup() {
 
     const response = await dispatch(createAccount(formdata));
     console.log(response);
-    if (response?.payload?.success) {
+    if (response?.payload?.data) {
       navigate("/");
     }
 
