@@ -79,6 +79,7 @@ function Signup() {
     formdata.append("password" , signupDetails.password);
     formdata.append("avatar" , signupDetails.avatar);
 
+ 
 
     const response = await dispatch(createAccount(formdata));
     console.log(response);

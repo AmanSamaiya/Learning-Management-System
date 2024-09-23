@@ -69,7 +69,7 @@ function HomeLayout({ children }) {
               </li>
 
               {!isLoggedIn ? (
-                <li className=" ml-14 w-[60%]">
+                <li className=" ml-14 w-[60%] ">
                   <div className=" w-full flex items-center justify-center">
                     <Link
                       to="/signin"

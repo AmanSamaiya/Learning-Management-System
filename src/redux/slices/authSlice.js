@@ -9,8 +9,13 @@ const initialState = {
 };
 
 export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
+
   try {
-    const response = await axiosInstance.post("/user/register", data);
+    const response = await axiosInstance.post("/user/register", data, {
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the correct content type
+      }
+    });
     toast.promise(response, {
       loading: "Wait! , Creating your account",
       success: (data) => {
@@ -23,6 +28,8 @@ export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
     toast.error(error?.response?.data?.message);
   }
 });
+
+
 
 export const updateProfile = createAsyncThunk("/auth/updateProfile", async (data) => {
   try {

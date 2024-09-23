@@ -11,13 +11,13 @@ import CourseList from './pages/Course/CourseList';
 import CourseDescription from './pages/Course/CourseDescription';
 import CreateCourse from './pages/Course/CreateCourse';
 import RequireAuth from './components/Auth/RequireAuth';
-import Profile from './pages/User/Profile';
-import EditProfile from './pages/User/EditProfile';
-import Checkout from './pages/Payments/checkout';
-import CheckoutSuccess from './pages/Payments/CheckoutSuccess';
-import CheckoutFailure from './pages/Payments/CheckoutFailure';
-import DisplayLectures from './pages/Dashboard/DisplayLectures';
-import AddLecture from './pages/Dashboard/AddLecture';
+import Profile from '././pages/User/Profile.jsx';
+import EditProfile from './pages/User/EditProfile.jsx';
+import Checkout from './pages/Payments/Checkout.jsx';
+import CheckoutSuccess from './pages/Payments/CheckoutSuccess.jsx';
+import CheckoutFailure from './pages/Payments/CheckoutFailure.jsx';
+import DisplayLectures from './pages/Dashboard/DisplayLectures.jsx';
+import AddLecture from './pages/Dashboard/AddLecture.jsx';
 
 function App() {
 
